@@ -33,7 +33,7 @@ buttonEasy.addEventListener('click',e =>{
     timerDiv.classList.remove('d-none'); 
 
 
-    let second = 29;
+    let second = 0;
     let minute = 1; 
     const countdown = setInterval(()=>{
         
@@ -41,9 +41,9 @@ buttonEasy.addEventListener('click',e =>{
         min.textContent = `${minute}`; 
         if(minute == 0 && second == 0){
             clearInterval(countdown);
-            alert("TIME's UP");
+            alert("TIME'S UP!!!");
             timerDiv.classList.add('d-none');
-            //document.getElementById("quiz-form").submit(); 
+            document.getElementById("submit-btn").click(); 
         }
         else if(second == 0){
             second = 59; 
@@ -68,7 +68,7 @@ buttonHard.addEventListener('click',e=>{
 
 
 /*
-Clicking the submit button 
+--------------------Clicking the submit button 
 */
 form.addEventListener('submit', e =>{
 timerDiv.classList.add('d-none')
