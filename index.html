@@ -4,27 +4,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
     <title>QUIZ NIGHT</title>
     
 </head>
 <body>
     <!-- top section -->
-    <div class="intro py-3 bg-white text-center">
-        <div class="container">
-        <h2 class="text-primary display-3 my-4">Test Your General Knowledge</h2>
+    <div class="back-img">
+        <div class="intro py-3 text-center">
+            <div class="container">
+                <h2 class="text-primary display-3 my-4">QUIZ NIGHT</h2>
+            </div>
+        </div>
+        <!--Choose Quiz Type-->
+        <div class="intro py-3 text-center quiz-level">
+            <button type="button" class="btn btn-success click-easy">EASY</button>
+            <button type="button" class="btn btn-warning click-medium">MEDIUM</button>
+            <button type="button" class="btn btn-danger click-hard">HARD</button>
+        
         </div>
     </div>
+    
     <!--Show Score-->
     <div class="result py-4 d-none bg-light text-center">
         <div class="container lead">
             <p>You are <span class="text-primary display-4 p-3 score">0%</span> correct</p>
         </div>
     </div>
+    <!---Timer-->
+    <div class="timer py-4 d-none bg-light text-center" onload="timer()">
+        <p class="p-0">Time Remaining <span class="minute">1</span> : <span class="second">30</span></p>
+    </div>
     <!--Quiz Section -->
     <div class="quiz py-4 bg-primary">
-        <div class="container">
+        <!------------------------------Easy Questions----------------------------------------->
+        <div class="container d-none easy-questions">
         <h2 class="my-5 text-white">On with the questions...</h2>
-            <form action="" class="quiz-form text-light">
+            <form action="" class="quiz-form text-light" id="quiz-form">
                 <!--Question1 -->
                 <div class="my-5">
                     <p>1. What's the biggest animal in the world?</p>
@@ -75,7 +91,7 @@
                 </div>
                 <!--Question 4-->
                 <div class="my-5">
-                    <p>4. What was the most streamed show on Netflix in 2020</p>
+                    <p>4. What was the most streamed show on Netflix in 2020?</p>
                     <div class="form-check my-2 text-white-50">
                         <input type="radio" name="q4" value="A" checked>
                         <label class="form-check-label">The Queens Gambit</label>
@@ -86,18 +102,87 @@
                     </div>
                 <div class="form-check my-2 text-white-50">
                     <input type="radio" name="q4" value="C">
-                    <label class="form-check-label">Tiger King.</label>
+                    <label class="form-check-label">Tiger King</label>
                 </div>
                 </div>
-                
+                <!--Question 5---->
+                <div class="my-5">
+                    <p>5. Who played Jack Sparrow in Pirates Of The Caribbean?</p>
+                    <div class="form-check my-2 text-white-50">
+                        <input type="radio" name="q5" value="A" checked>
+                        <label class="form-check-label">Hector Barbossa</label>
+                    </div>
+                    <div class="form-check my-2 text-white-50">
+                    <input type="radio" name="q5" value="B" >
+                    <label class="form-check-label">Johnny Depp</label>
+                    </div>
+                <div class="form-check my-2 text-white-50">
+                    <input type="radio" name="q5" value="C">
+                    <label class="form-check-label">Will Turner</label>
+                </div>
+                </div>
+                <!--Question 6-->
+                <div class="my-5">
+                    <p>6. What is the smallest planet in the solar system?</p>
+                    <div class="form-check my-2 text-white-50">
+                        <input type="radio" name="q6" value="A" checked>
+                        <label class="form-check-label">Venus</label>
+                    </div>
+                    <div class="form-check my-2 text-white-50">
+                    <input type="radio" name="q6" value="B" >
+                    <label class="form-check-label">Pluto</label>
+                    </div>
+                <div class="form-check my-2 text-white-50">
+                    <input type="radio" name="q6" value="C">
+                    <label class="form-check-label">Mercury</label>
+                </div>
+                </div>
+                <!--Question 7-->
+                <div class="my-5">
+                    <p>7. H2O is the chemical formula for what?</p>
+                    <div class="form-check my-2 text-white-50">
+                        <input type="radio" name="q7" value="A" checked>
+                        <label class="form-check-label">Salt</label>
+                    </div>
+                    <div class="form-check my-2 text-white-50">
+                    <input type="radio" name="q7" value="B" >
+                    <label class="form-check-label">Water</label>
+                    </div>
+                <div class="form-check my-2 text-white-50">
+                    <input type="radio" name="q7" value="C">
+                    <label class="form-check-label">Iron</label>
+                </div>
+                </div>
+                <!--Question 8-->
+                <div class="my-5">
+                    <p>8. What year did world war II end?</p>
+                    <div class="form-check my-2 text-white-50">
+                        <input type="radio" name="q8" value="A" checked>
+                        <label class="form-check-label">1939</label>
+                    </div>
+                    <div class="form-check my-2 text-white-50">
+                    <input type="radio" name="q8" value="B" >
+                    <label class="form-check-label">1942</label>
+                    </div>
+                <div class="form-check my-2 text-white-50">
+                    <input type="radio" name="q8" value="C">
+                    <label class="form-check-label">1945</label>
+                </div>
+                </div>
                 <!--Submit-->
                 <div class="text-center">
                     <input type="submit" class="btn btn-light"> 
                 </div>
+                
             </form>
         </div>
+        <!----------Medium Questions--------->
+    </div>
+    <div class='hide-prompt'>
+        <h2 class ="display-4 hide-prompt text-center" style="margin-top: 5%;">Choose a level from Above to get started!</h2>
     </div>
 
 <script src="app.js"></script>
+<script src="jquery-3.5.1.min.js"></script>
 </body>
 </html>
