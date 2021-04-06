@@ -33,7 +33,7 @@ buttonEasy.addEventListener('click',e =>{
     timerDiv.classList.remove('d-none'); 
 
 
-    let second = 0;
+    let second = 30;
     let minute = 1; 
     const countdown = setInterval(()=>{
         
